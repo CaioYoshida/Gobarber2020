@@ -1,17 +1,17 @@
 {
   "type": "postgres",
-  "host": "192.168.99.103",
+  "host": "localhost",
   "port": 5432,
   "username": "postgres",
   "password": "docker",
   "database": "gobarber_2020",
   "entities": [
-    "./src/models/*.ts"
+    "./src/modules/**/infra/typeorm/entities/*.ts"
   ],
   "migrations": [
-    "./src/database/migrations/*.ts"
+    "./src/shared/infra/typeorm/database/migrations/*.ts"
   ],
   "cli": {
-    "migrationsDir": "./src/database/migrations"
+    "migrationsDir": "./src/shared/infra/typeorm/database/migrations"
   }
 }
