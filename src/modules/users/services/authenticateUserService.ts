@@ -29,7 +29,7 @@ class AuthenticateUserSession {
     @inject('UsersRepository')
     userRepository: IUsersRepository,
 
-    @inject('HashProvier')
+    @inject('HashProvider')
     hashProvider: IHashProvider,
   ) {
     this.usersRepository = userRepository;
@@ -40,12 +40,12 @@ class AuthenticateUserSession {
     const user = await this.usersRepository.findByEmail(email);
 
     if (!user) {
-      throw new AppError('Incorrect email/password combination', 401);
+      throw new AppError('User does not exist', 401);
     }
 
     const passwordMatched = await this.hashProvider.compareHash(
-      user.password,
       password,
+      user.password,
     );
 
     if (!passwordMatched) {
