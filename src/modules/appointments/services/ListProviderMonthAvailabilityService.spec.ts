@@ -18,6 +18,7 @@ describe('UpdateUserAvatar', () => {
 
     await fakeAppointmentsRepository.create({
       provider_id: 'user',
+      user_id: '123456789',
       date: new Date(2020, 4, 19, 8, 0, 0),
     });
 
@@ -25,6 +26,7 @@ describe('UpdateUserAvatar', () => {
       schedule.map(async each => {
         return fakeAppointmentsRepository.create({
           provider_id: 'user',
+          user_id: '123456789',
           date: new Date(2020, 4, 20, each, 0, 0),
         });
       }),
@@ -34,6 +36,7 @@ describe('UpdateUserAvatar', () => {
       schedule.map(async each => {
         return fakeAppointmentsRepository.create({
           provider_id: 'user',
+          user_id: '123456789',
           date: new Date(2020, 4, 21, each, 0, 0),
         });
       }),
@@ -41,6 +44,7 @@ describe('UpdateUserAvatar', () => {
 
     await fakeAppointmentsRepository.create({
       provider_id: 'user',
+      user_id: '123456789',
       date: new Date(2020, 4, 22, 8, 0, 0),
     });
 
