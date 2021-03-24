@@ -54,10 +54,12 @@ class AuthenticateUserSession {
 
     const { secret, expiresIn } = authConfig.jwt;
 
-    const token = sign({}, secret, {
-      subject: user.id,
-      expiresIn,
-    });
+    const token = secret
+      ? sign({}, secret, {
+          subject: user.id,
+          expiresIn,
+        })
+      : '';
 
     return {
       user,
